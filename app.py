@@ -17,7 +17,7 @@ smiles = st.text_input(' smiles を入力後、判定ボタンを押す')
 
 
 if st.button('判定'):
-  　mol = Chem.MolFromSmiles(smiles)
+    mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         st.error('smilesを確認してください')
     else:
