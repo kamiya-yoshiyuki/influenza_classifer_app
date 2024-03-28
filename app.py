@@ -15,7 +15,6 @@ st.title('インフルエンザ 効果判定')
 smiles = st.text_input(' smiles を入力後、判定ボタンを押す')
 # print(response.status_code)
 
-
 if st.button('判定'):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
