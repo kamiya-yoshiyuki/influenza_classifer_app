@@ -17,7 +17,7 @@ smiles = st.text_input(' smiles を入力後、判定ボタンを押す')
 
 
 if st.button('判定'):
-    response = requests.post(url='https://infuluenza-classifier.onrender.com/make_predictions', json={'smiles': smiles})
+    response = requests.post(url='https://influenza-classifer-app.onrender.com/make_predictions', json={'smiles': smiles})
 
     mol = Chem.MolFromSmiles(smiles)
     img = Chem.Draw.MolToImage(mol)
