@@ -17,17 +17,20 @@ smiles = st.text_input(' smiles を入力後、判定ボタンを押す')
 
 
 if st.button('判定'):
-    response = requests.post(url='https://influenza-classifer-app.onrender.com/make_predictions', json={'smiles': smiles})
-
-    mol = Chem.MolFromSmiles(smiles)
-    img = Chem.Draw.MolToImage(mol)
-    st.image(img)
-
-    #plt.imshow(img)
-
-    target = ['効果あり', '不明', '効果なし']
-
-    prediction = response.json()['prediction']
-
-    st.write('## 予測結果')
-    st.write('#### この化合物はインフルエンザに対して「', str(target[int(prediction)]),'」です')
+  　mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        st.error('smilesを確認してください')
+    else:
+        response = requests.post(url='https://influenza-classifer-app.onrender.com/make_predictions', json={'smiles': smiles})
+        
+        img = Chem.Draw.MolToImage(mol)
+        st.image(img)
+    
+        #plt.imshow(img)
+    
+        target = ['効果あり', '不明', '効果なし']
+    
+        prediction = response.json()['prediction']
+    
+        st.write('## 予測結果')
+        st.write('#### この化合物はインフルエンザに対して「', str(target[int(prediction)]),'」です')
