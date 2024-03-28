@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from rdkit.Chem import inchi
 from rdkit.Chem import Draw
 
-st.title('インフルエンザ 分類')  
+st.title('インフルエンザ 効果判定')  
 
 smiles = st.text_input(' smiles を入力後、判定ボタンを押す')
 # print(response.status_code)
